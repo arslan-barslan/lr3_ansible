@@ -6,7 +6,7 @@
 
 2. Создаю dockerfile.controller в котором работает ansible, который выполняет playbooks. где будут команды ansible,ansible-playbook 
 
-![alt text](1.png)
+![alt text](4.png)
 
 3. Создаю docker-compose.yml
 

@@ -2,7 +2,7 @@
 
 1. Создаю dockerfile.managed в нём будет ssh, на который ansible будет подключатся 
 
-![alt text](4.png)
+![alt text](2.png)
 
 2. Создаю dockerfile.controller в котором работает ansible, который выполняет playbooks. где будут команды ansible,ansible-playbook 
 

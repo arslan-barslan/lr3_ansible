@@ -1,0 +1,28 @@
+---
+- name: Basic Ansible Lab
+  hosts: managed_hosts
+  become: yes
+
+  tasks:
+    - name: Update package list
+      apt:
+        update_cache: yes
+
+    - name: Create test directory
+      file:
+        path: /tmp/ansible-test
+        state: directory
+
+    - name: Create test file
+      copy:
+        content: |
+          Hello from Ansible!
+          This is a test file created by Ansible playbook.
+        dest: /tmp/ansible-test/test.txt
+
+    - name: Show file content
+      command: cat /tmp/ansible-test/test.txt
+      register: out
+
+    - debug:
+        msg: "{{ out.stdout }}"

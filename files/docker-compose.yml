@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  managed:
+    build:
+      context: .
+      dockerfile: Dockerfile.managed
+    container_name: ansible-managed-host
+    networks:
+      - ansible-net
+
+  controller:
+    build:
+      context: .
+      dockerfile: Dockerfile.controller
+    container_name: ansible-controller
+    volumes:
+      - .:/ansible
+    depends_on:
+      - managed
+    networks:
+      - ansible-net
+    tty: true
+
+networks:
+  ansible-net:
+    driver: bridge
